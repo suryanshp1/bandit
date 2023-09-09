@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  app:
+    build:
+     context: .
+     dockerfile: Dockerfile
+    command: [ "-f", "/app/usr/src/test.py", "json", "-o", "/app/usr/src/output.json" ]
+    volumes:
+      - ./:/app/usr/src
+
+volumes:
+  data:
+    driver: local
